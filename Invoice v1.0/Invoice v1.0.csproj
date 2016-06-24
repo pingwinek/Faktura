@@ -120,6 +120,10 @@
     <Compile Include="Migrations\201606240902027_1.Designer.cs">
       <DependentUpon>201606240902027_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606241035292_2.cs" />
+    <Compile Include="Migrations\201606241035292_2.Designer.cs">
+      <DependentUpon>201606241035292_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneDoFaktury.cs" />
     <Compile Include="Models\DaneDoFakturyContext.cs" />
@@ -148,6 +152,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606240902027_1.resx">
       <DependentUpon>201606240902027_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606241035292_2.resx">
+      <DependentUpon>201606241035292_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
