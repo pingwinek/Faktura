@@ -1,28 +1,38 @@
-﻿@model IEnumerable<Invoice_v1._0.Models.DaneDoFaktury>
+﻿@model Invoice_v1._0.Models.DaneDoFaktury
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<table>
+    <td>
+        <h3>
+            Dane do faktury
+        </h3>
+        <blockquote>
+            <p>     
+                <strong>Imię i nazwisko: </strong>@Html.DisplayFor(m => m.Name) @Html.DisplayFor(m => m.Surname)
+                    
+            </p>
+            <p>
+                <strong>Ulica: </strong>@Html.DisplayFor(m => m.Street) @Html.DisplayFor(m => m.NumberOfAddress)
+            </p>
+            <p>
+                <strong>Miasto: </strong>@Html.DisplayFor(m => m.City)
+            </p>
+        </blockquote>
+    </td>
+</table>
+
 <table class="table">
+    <h4>
+        Zamówienie
+    </h4>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Product)
         </th>
@@ -30,40 +40,36 @@
             @Html.DisplayNameFor(model => model.Amounts)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PriceForOne)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Model.Product
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Surname)
+            @Model.Amounts
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gender)
+            @Model.PriceForOne
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            @Model.Date
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Product)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amounts)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
         </td>
     </tr>
-}
-
+</table>
+<table>
+    <tr>
+        <strong>Total Price: </strong>@Model.TotalPrice
+    </tr>
 </table>

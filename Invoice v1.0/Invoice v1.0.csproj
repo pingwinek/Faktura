@@ -116,6 +116,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606240902027_1.cs" />
+    <Compile Include="Migrations\201606240902027_1.Designer.cs">
+      <DependentUpon>201606240902027_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneDoFaktury.cs" />
     <Compile Include="Models\DaneDoFakturyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606240902027_1.resx">
+      <DependentUpon>201606240902027_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

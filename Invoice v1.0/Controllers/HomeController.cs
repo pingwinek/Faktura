@@ -15,9 +15,12 @@ namespace Invoice_v1._0.Controllers
         private DaneDoFakturyContext db = new DaneDoFakturyContext();
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
-            return View(db.DaneDoFaktury.ToList());
+            DaneDoFakturyContext daneContext = new DaneDoFakturyContext();
+            DaneDoFaktury dane = daneContext.DaneDoFaktury.Single(x => x.ID == id);
+
+            return View(dane);
         }
 
         // GET: Home/Details/5
@@ -46,13 +49,13 @@ namespace Invoice_v1._0.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Surname,Gender,City,Product,Amounts,Date")] DaneDoFaktury daneDoFaktury)
+        public ActionResult Create([Bind(Include = "ID,Name,Surname,Street,NumberOfAddress,Gender,City,Product,Amounts,PriceForOne,Date")] DaneDoFaktury daneDoFaktury)
         {
             if (ModelState.IsValid)
             {
                 db.DaneDoFaktury.Add(daneDoFaktury);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = daneDoFaktury.ID });
             }
 
             return View(daneDoFaktury);
