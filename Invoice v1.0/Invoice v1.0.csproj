@@ -88,6 +88,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Invoice.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -112,21 +113,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606240902027_1.cs" />
-    <Compile Include="Migrations\201606240902027_1.Designer.cs">
-      <DependentUpon>201606240902027_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606241035292_2.cs" />
-    <Compile Include="Migrations\201606241035292_2.Designer.cs">
-      <DependentUpon>201606241035292_2.cs</DependentUpon>
+    <Compile Include="Interface1.cs" />
+    <Compile Include="Migrations\201606281357403_startowa.cs" />
+    <Compile Include="Migrations\201606281357403_startowa.Designer.cs">
+      <DependentUpon>201606281357403_startowa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DaneDoFaktury.cs" />
     <Compile Include="Models\DaneDoFakturyContext.cs" />
+    <Compile Include="Models\Faktura.cs" />
+    <Compile Include="Models\Klient.cs" />
+    <Compile Include="Models\Konto.cs" />
+    <Compile Include="Models\Najem.cs" />
+    <Compile Include="Models\Platnosc.cs" />
+    <Compile Include="Models\Produkt.cs" />
+    <Compile Include="Models\Produkt_Klient.cs" />
+    <Compile Include="Models\Sprzedawca.cs" />
+    <Compile Include="Models\Sprzedawca_Klient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +140,6 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Home\Delete.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,13 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606240902027_1.resx">
-      <DependentUpon>201606240902027_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606241035292_2.resx">
-      <DependentUpon>201606241035292_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606281357403_startowa.resx">
+      <DependentUpon>201606281357403_startowa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
