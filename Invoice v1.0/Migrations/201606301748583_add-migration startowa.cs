@@ -3,7 +3,7 @@ namespace Invoice_v1._0.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class startowa : DbMigration
+    public partial class addmigrationstartowa : DbMigration
     {
         public override void Up()
         {
@@ -89,7 +89,7 @@ namespace Invoice_v1._0.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Nazwa = c.String(),
+                        Nazwa = c.String(nullable: false, maxLength: 12),
                         CenaNettoZaSzt = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Ilosc = c.Int(nullable: false),
                     })

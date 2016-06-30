@@ -15,6 +15,7 @@ namespace Invoice_v1._0.Models
         public DbSet<Faktura> Faktura { get; set; }
         public DbSet<Najem> Najem { get; set; }
         public DbSet<Platnosc> Platnosc { get; set; }
+        public DbSet<Konto> Konto { get; set; }
         public DbSet<Sprzedawca_Klient> Sprzedawca_Klient { get; set; }
         public DbSet<Produkt_Klient> Produkt_Klient { get; set; }
 

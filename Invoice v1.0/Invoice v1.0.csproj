@@ -114,13 +114,18 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interface1.cs" />
-    <Compile Include="Migrations\201606281357403_startowa.cs" />
-    <Compile Include="Migrations\201606281357403_startowa.Designer.cs">
-      <DependentUpon>201606281357403_startowa.cs</DependentUpon>
+    <Compile Include="Migrations\201606301748583_add-migration startowa.cs" />
+    <Compile Include="Migrations\201606301748583_add-migration startowa.Designer.cs">
+      <DependentUpon>201606301748583_add-migration startowa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606301756052_2.cs" />
+    <Compile Include="Migrations\201606301756052_2.Designer.cs">
+      <DependentUpon>201606301756052_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DaneDoFakturyContext.cs" />
@@ -133,6 +138,7 @@
     <Compile Include="Models\Produkt_Klient.cs" />
     <Compile Include="Models\Sprzedawca.cs" />
     <Compile Include="Models\Sprzedawca_Klient.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +146,8 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,11 +157,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606281357403_startowa.resx">
-      <DependentUpon>201606281357403_startowa.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606301748583_add-migration startowa.resx">
+      <DependentUpon>201606301748583_add-migration startowa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606301756052_2.resx">
+      <DependentUpon>201606301756052_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,107 @@
+﻿@model Invoice_v1._0.Models.ViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Invoice.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>FAKTURA VAT @Model.allFaktures.Where(f=>f.ID == 1).FirstOrDefault().NrFaktury</h1>
+            <h3>Do umowy najmu @Model.allNajem.Where(n=>n.ID == 1).FirstOrDefault().NrNajmu</h3>
+            <p>ORYGINAŁ/KOPIA/DUPLIKAT</p>
+        </div>
+        <div id="date">
+            <p>Częstochowa @DateTime.Now.ToShortDateString()</p>
+        </div>
+        <div id="dealer">
+            <p><b>Sprzedawca:</b></p>
+            <p>@Model.allSprzedawca.Where(s=>s.ID == 1).FirstOrDefault().Imie @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().Nazwisko</p>
+            <p>ul. @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().Ulica @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().NrDomu</p>
+            <p>@Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().Miasto</p>
+            <p>NIP @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().NIP</p>
+        </div>
+        <div id="customer">
+            <p><b>Nabywca:</b></p>
+            <p>@Model.allKlients.Where(s => s.ID == 1).FirstOrDefault().Imie @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().Nazwisko</p>
+            <p>ul. @Model.allKlients.Where(s => s.ID == 1).FirstOrDefault().Ulica @Model.allSprzedawca.Where(s => s.ID == 1).FirstOrDefault().NrDomu</p>
+            <p>@Model.allKlients.Where(s => s.ID == 1).FirstOrDefault().Miasto</p>
+            <p>NIP @Model.allKlients.Where(s => s.ID == 1).FirstOrDefault().NIP</p>
+        </div>
+        <div id="payment">
+            <p>Sposób zapłaty: @Model.allPlatnosc.Where(p=>p.ID == 1).FirstOrDefault().SposobPlatnosci</p>
+            <p>Bank: @Model.allKonto.Where(k=>k.ID == 1).FirstOrDefault().Bank</p>
+            <p>Konto: @Model.allKonto.Where(k => k.ID == 1).FirstOrDefault().NrKonta</p>
+        </div>
+        <div id="paymentDate">
+            <p>Termin zapłaty: @DateTime.Now.AddDays(12).ToShortDateString()</p>
+            <p>Data sprzedaży: @DateTime.Now.ToShortDateString()</p>
+        </div>
+        <div id="productTable">
+            <table class="zebra-striped">
+                <thead>
+                <th width="40">
+                    ID
+                </th>
+                <th width="100">
+                    Nazwa
+                </th>
+                <th width="70">
+                    Cena netto za 1 szt
+                </th>
+                <th width="70">
+                    Ilość
+                </th>
+                <th width="70">
+                    Cena netto
+                </th>
+                <th width="60">
+                    VAT
+                </th>
+                <th width="80">
+                    Cena brutto
+                </th>
+                </thead>
+
+                @foreach (var item in Model.allProducts)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td nowrap>
+                            @Html.DisplayFor(modelItem => item.Nazwa)
+                        </td>
+                        <td nowrap>
+                            @String.Format("{0:C}", item.CenaNettoZaSzt)
+                        </td>
+                        <td nowrap>
+                            @Html.DisplayFor(modelItem => item.Ilosc)
+                        </td>
+                        <td nowrap>
+                            @String.Format("{0:C}", item.CenaNettoCalosc)
+                        </td>
+                        <td nowrap>
+                            @Html.DisplayFor(modelItem => item.VAT)%
+                        </td>
+                        <td nowrap>
+                            @String.Format("{0:C}", item.CenaBruttoCalosc)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="toPay">
+            <h3>Razem do zapłaty: @String.Format("{0:C}", Model.allProducts.Sum(i => i.CenaBruttoCalosc))</h3>
+        </div>
+    </div>
+</body>
+@Html.ActionLink("Dodaj kolejny produkt", "Create")
+</html>
